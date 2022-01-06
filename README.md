@@ -37,12 +37,12 @@ Install requirements for Virtual environment:
     source .venv/bin/activate
     pip install --upgrade pip
     pip install -r requirements.txt
-    python e6k_utsc.py <IPv4 : 1, IPv6 2> <CMTS IP> <CMTS RW community string> <Upstream ifIndex> <ssh user> <ssh pw>
+    python3 getAndPlotFbcData.py 1 public 10.2.4.100 spectra
 ### Mac OS:
     python3 -m venv .venv
 	source .venv/bin/activate
     pip install -r requirements.txt
-    python e6k_utsc.py <IPv4 : 1, IPv6 2> <CMTS IP> <CMTS RW community string> <Upstream ifIndex> <ssh user> <ssh pw>
+    python3 getAndPlotFbcData.py 1 public 10.2.4.100 spectra
 ## Troubleshooting
 
 ### CentOS / RHEL 7 
