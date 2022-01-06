@@ -37,9 +37,10 @@ Install requirements for Virtual environment:
     source .venv/bin/activate
     pip install --upgrade pip
     pip install -r requirements.txt
-        getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cable modem IP address> <filename>
+    getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cable modem IP address> <filename>
  
  Example:
+ 
     python3 getAndPlotFbcData.py 1 public 10.2.4.100 spectra
     
 ### Mac OS:
@@ -49,6 +50,7 @@ Install requirements for Virtual environment:
     getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cable modem IP address> <filename>
  
  Example:
+ 
     python3 getAndPlotFbcData.py 1 public 10.2.4.100 spectra
 
 ## Output
