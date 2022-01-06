@@ -4,7 +4,7 @@ This Python appliction configures enables a cable modem for Full Band Capture (F
 ## Overview
 This document contains more than just documentation of FBC. Scripts the author has been writing in Perl are now being migrated to Python. Some work has been done to ensure continuity on constomer servers and miminmal impact. For that purpose, only virtual envirmonments will be used when deploying and testing with Python scripts moving forward. This will be required. As part of this, documementaiton for virtual environments (venv) will be part of the README.md files in each repo where such files are provided, such as this, along with theh respective requirements.txt file.
 
-## Dependencie
+## Dependencies
 
 ### CentOS / RHEL 7
 
@@ -37,12 +37,24 @@ Install requirements for Virtual environment:
     source .venv/bin/activate
     pip install --upgrade pip
     pip install -r requirements.txt
+        getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cable modem IP address> <filename>
+ 
+ Example:
     python3 getAndPlotFbcData.py 1 public 10.2.4.100 spectra
+    
 ### Mac OS:
     python3 -m venv .venv
 	source .venv/bin/activate
     pip install -r requirements.txt
+    getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cable modem IP address> <filename>
+ 
+ Example:
     python3 getAndPlotFbcData.py 1 public 10.2.4.100 spectra
+
+## Output
+Two files are generated in the local directory if no errors are generated when the script is run. The first file has the same name as the "filename" and is located in the local directory. This is a text file with amplitude and frequency data. The second file has ".html" appended to the filename, such as "spectra.html" and can be opened in a web browser to visualize the FBC data. Examples of both files are included in the repository.
+
+
 ## Troubleshooting
 
 ### CentOS / RHEL 7 
