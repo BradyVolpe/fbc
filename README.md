@@ -55,7 +55,7 @@ Install requirements for Virtual environment:
 Two files are generated in the local directory if no errors are generated when the script is run. The first file has the same name as the "filename" and is located in the local directory. This is a text file with amplitude and frequency data. The second file has ".html" appended to the filename, such as "spectra.html" and can be opened in a web browser to visualize the FBC data. Examples of both files are included in the repository.
 
 Example html FBC file:
-![alt text](https://github.com/BradyVolpe/fbc/blob/main/spectra.html)
+![sample FBC image](https://github.com/BradyVolpe/fbc/blob/main/sample_fbc_image.png)
 
 ## Troubleshooting
 
