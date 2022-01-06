@@ -209,7 +209,7 @@ def showFbcData():
                   title='DOCSIS Cable Modem Full Band Capture', markers=True)
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)', 'paper_bgcolor': 'rgba(0, 0, 0, 0)'},
                       title={'x': 0.5, 'xanchor': 'center'})
-    fig.update_traces(hovertemplate='Frequency: <b>%{x:.2f} MHz</b><br>Amplitude: <b>%{y:.2f} dB</b>',
+    fig.update_traces(hovertemplate='Frequency: <b>%{x:.2f} MHz</b><br>Amplitude: <b>%{y:.2f} dBmV</b>',
                       line_color='rgb(68,114,196)')
     fig.update_xaxes(showline=True, linewidth=2,
                      linecolor='black', gridcolor='rgb(209,209,209)')
