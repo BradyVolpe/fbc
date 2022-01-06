@@ -4,40 +4,32 @@
 # Updated Aug, 2021
 # Nimble This LLC 2013
 # All Rights Reserved
-# No part of this website or any of its contents may be reproduced, copied, modified or adapted,
+# No part of this repo or any of its contents may be reproduced, copied, modified or adapted,
 # without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 #
 #
-# Collects docsIf3CmSpectrumAnalysisMeasAmplitudeData from cable modem and save to
-# CSV file along with saving the plotted graph file in the .html format
-#
 #
 # IMP : plotly, pysnmp and pandas modules are required for this script
-# USAGE: getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cable modem IP address> <filename>
+# USAGE: getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cm IP > <filename>
 
 import csv
 from os import times
 import sys
 import time
-
 import plotly.express as px
 from pysnmp.hlapi import *
 
-# Define FBC SNMP OIDs used
+# Define MIBs
 docsIf3CmSpectrumAnalysisMeasAmplitudeData = ".1.3.6.1.4.1.4491.2.1.20.1.35.1.2"
-
-# OID for checking modem reachability
-modemDescOID = "1.3.6.1.2.1.1.1.0"
-
-# Spectrum parameter OIDs
-enableAnalyzerOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.1.0"
-inactivityTimeoutOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.2.0"
-startFreqOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.3.0"
-stopFreqOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.4.0"
-spanOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.5.0"
-binOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.6.0"
-windowOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.8.0"
-avgOID = ".1.3.6.1.4.1.4491.2.1.20.1.34.9.0"
+modemDescOID            = "1.3.6.1.2.1.1.1.0"
+enableAnalyzerOID       = ".1.3.6.1.4.1.4491.2.1.20.1.34.1.0"
+inactivityTimeoutOID    = ".1.3.6.1.4.1.4491.2.1.20.1.34.2.0"
+startFreqOID            = ".1.3.6.1.4.1.4491.2.1.20.1.34.3.0"
+stopFreqOID             = ".1.3.6.1.4.1.4491.2.1.20.1.34.4.0"
+spanOID                 = ".1.3.6.1.4.1.4491.2.1.20.1.34.5.0"
+binOID                  = ".1.3.6.1.4.1.4491.2.1.20.1.34.6.0"
+windowOID               = ".1.3.6.1.4.1.4491.2.1.20.1.34.8.0"
+avgOID                  = ".1.3.6.1.4.1.4491.2.1.20.1.34.9.0"
 
 # Convert 2's complement 16 hex value to decimal
 def twos(val):
@@ -166,11 +158,11 @@ def getFbcData():
             index = 0
             for x in ampdata:
                 if(index < ampDataLen-1):
-                    centerfreq = int(x[0:8], 16)
-                    freqspan = int(x[8:16], 16)
-                    numbins = int(x[16:24], 16)
-                    binspacing = int(x[24:32], 16)
-                    resbw = int(x[32:40], 16)
+                    centerfreq  = int(x[0:8], 16)
+                    freqspan    = int(x[8:16], 16)
+                    numbins     = int(x[16:24], 16)
+                    binspacing  = int(x[24:32], 16)
+                    resbw       = int(x[32:40], 16)
 
                     startfreq = centerfreq - (numbins / 2 * binspacing)
 
@@ -222,7 +214,7 @@ def showFbcData():
 if __name__ == "__main__":
     
     if ((len(sys.argv)) < 5):
-        print("Usage: getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cable modem IP address> <filename>")
+        print("Usage: getAndPlotFbcData.py <IPv4 : 1, IPv6 2> <SNMP community string> <cm IP> <filename>")
         sys.exit()
 
     isModemReachable()
